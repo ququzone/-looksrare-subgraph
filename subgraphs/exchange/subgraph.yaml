@@ -6,11 +6,11 @@ schema:
 dataSources:
   - kind: ethereum/contract
     name: LooksRareExchange
-    network: goerli
+    network: iotex_testnet
     source:
       abi: LooksRareExchange
-      address: "0xd112466471b5438c1ca2d218694200e49d81d047"
-      startBlock: 7247379
+      address: "0x784492176db6CF4d1Ca59760E5eA3B305268a039"
+      startBlock: 17431600
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.6
@@ -28,9 +28,9 @@ dataSources:
         - Trade
       abis:
         - name: LooksRareExchange
-          file: ../../node_modules/@looksrare/sdk/dist/abis/LooksRareExchange.json
+          file: ./abis/LooksRareExchange.json
         - name: IExecutionStrategy
-          file: ../../node_modules/@looksrare/sdk/dist/abis/IExecutionStrategy.json
+          file: ./abis/IExecutionStrategy.json
       eventHandlers:
         - event: RoyaltyPayment(indexed address,indexed uint256,indexed
             address,address,uint256)
