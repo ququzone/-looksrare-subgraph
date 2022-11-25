@@ -8,5 +8,10 @@
     "EIP721": {
       "startBlock": 0
     }
+  },
+  "iotex_testnet": {
+    "EIP721": {
+      "startBlock": 17431600
+    }
   }
 }

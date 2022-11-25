@@ -8,5 +8,10 @@
     "EIP1155": {
       "startBlock": 0
     }
+  },
+  "iotex_testnet": {
+    "EIP1155": {
+      "startBlock": 17431600
+    }
   }
 }
