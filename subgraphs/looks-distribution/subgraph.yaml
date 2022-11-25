@@ -1,0 +1,160 @@
+specVersion: 0.0.4
+description: LooksRare LOOKS distribution contracts
+repository: https://github.com/looksrare
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: FeeSharingSystem
+    network: goerli
+    source:
+      abi: FeeSharingSystem
+      address: "0x8a29e7b241a32158fd7f267d484199aad8dd2e31"
+      startBlock: 7532819
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      file: ./mappings/index.ts
+      entities:
+        - DailySnapshot
+        - Overview
+        - RewardPeriod
+        - User
+      abis:
+        - name: AggregatorFeeSharingWithUniswapV3
+          file: ../../node_modules/@looksrare/sdk/dist/abis/AggregatorFeeSharingWithUniswapV3.json
+        - name: FeeSharingSystem
+          file: ../../node_modules/@looksrare/sdk/dist/abis/FeeSharingSystem.json
+      callHandlers:
+        - function: withdraw(uint256,bool)
+          handler: handleCallWithdrawFeeSharing
+        - function: withdrawAll(bool)
+          handler: handleCallWithdrawAllFeeSharing
+      eventHandlers:
+        - event: Deposit(indexed address,uint256,uint256)
+          handler: handleDepositFeeSharing
+        - event: Harvest(indexed address,uint256)
+          handler: handleHarvestFeeSharing
+        - event: Withdraw(indexed address,uint256,uint256)
+          handler: handleWithdrawFeeSharing
+        - event: NewRewardPeriod(uint256,uint256,uint256)
+          handler: handleNewRewardPeriod
+  - kind: ethereum/contract
+    name: StakingPoolForUniswapV2Tokens
+    network: goerli
+    source:
+      abi: StakingPoolForUniswapV2Tokens
+      address: "0x0000000000000000000000000000000000000000"
+      startBlock: 1e+23
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      file: ./mappings/index.ts
+      entities:
+        - User
+      abis:
+        - name: StakingPoolForUniswapV2Tokens
+          file: ../../node_modules/@looksrare/sdk/dist/abis/StakingPoolForUniswapV2Tokens.json
+      eventHandlers:
+        - event: Deposit(indexed address,uint256,uint256)
+          handler: handleDepositStakingV2
+        - event: Harvest(indexed address,uint256)
+          handler: handleHarvestStakingV2
+        - event: Withdraw(indexed address,uint256,uint256)
+          handler: handleWithdrawStakingV2
+  - kind: ethereum/contract
+    name: LooksRareAirdrop
+    network: goerli
+    source:
+      abi: LooksRareAirdrop
+      address: "0x0000000000000000000000000000000000000000"
+      startBlock: 1e+23
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      file: ./mappings/index.ts
+      entities:
+        - User
+      abis:
+        - name: LooksRareAirdrop
+          file: ../../node_modules/@looksrare/sdk/dist/abis/LooksRareAirdrop.json
+      eventHandlers:
+        - event: AirdropRewardsClaim(indexed address,uint256)
+          handler: handleAirdropClaim
+  - kind: ethereum/contract
+    name: TradingRewardsDistributor
+    network: goerli
+    source:
+      abi: TradingRewardsDistributor
+      address: "0x0000000000000000000000000000000000000000"
+      startBlock: 1e+23
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      file: ./mappings/index.ts
+      entities:
+        - User
+      abis:
+        - name: TradingRewardsDistributor
+          file: ../../node_modules/@looksrare/sdk/dist/abis/TradingRewardsDistributor.json
+      eventHandlers:
+        - event: RewardsClaim(indexed address,indexed uint256,uint256)
+          handler: handleTradingRewardsClaim
+  - kind: ethereum/contract
+    name: AggregatorFeeSharingWithUniswapV3
+    network: goerli
+    source:
+      abi: AggregatorFeeSharingWithUniswapV3
+      address: "0x63c38b3be3ef075a00a5edaec36f499088c7334c"
+      startBlock: 7532819
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      file: ./mappings/index.ts
+      entities:
+        - DailySnapshot
+        - Overview
+        - AggregatorConversion
+        - User
+      abis:
+        - name: AggregatorFeeSharingWithUniswapV3
+          file: ../../node_modules/@looksrare/sdk/dist/abis/AggregatorFeeSharingWithUniswapV3.json
+        - name: FeeSharingSystem
+          file: ../../node_modules/@looksrare/sdk/dist/abis/FeeSharingSystem.json
+      callHandlers:
+        - function: withdraw(uint256)
+          handler: handleCallWithdrawAggregatorUniswapV3
+        - function: withdrawAll()
+          handler: handleCallWithdrawAggregatorUniswapV3
+      eventHandlers:
+        - event: Deposit(indexed address,uint256)
+          handler: handleDepositAggregatorUniswapV3
+        - event: ConversionToLOOKS(uint256,uint256)
+          handler: handleConversionToLOOKSAggregatorUniswapV3
+        - event: Withdraw(indexed address,uint256)
+          handler: handleWithdrawAggregatorUniswapV3
+  - kind: ethereum/contract
+    name: MultiRewardsDistributor
+    network: goerli
+    source:
+      abi: MultiRewardsDistributor
+      address: "0xdc6dc8d1b784890ba2c38947218f89e963ec2673"
+      startBlock: 7532819
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      file: ./mappings/index.ts
+      entities:
+        - User
+      abis:
+        - name: MultiRewardsDistributor
+          file: ./abis/LightMultiRewardsDistributor.json
+      eventHandlers:
+        - event: Claim(address,uint256,uint256,uint8[],uint256[])
+          handler: handleMultiRewardsClaim
