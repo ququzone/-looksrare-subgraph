@@ -13,5 +13,10 @@
     "EIP721": {
       "startBlock": 17431600
     }
+  },
+  "iotex": {
+    "EIP721": {
+      "startBlock": 20000000
+    }
   }
 }

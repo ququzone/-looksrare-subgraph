@@ -11,10 +11,12 @@
     "build:mainnet": "graph build subgraph.yaml --network mainnet",
     "build:iotex_testnet": "graph build subgraph.yaml --network iotex_testnet",
     "create:iotex_testnet": "graph create looksrare/exchange --node https://rpc.graph.mainnet.iotex.io/",
+    "create:iotex": "graph create mimonft/exchange --node https://rpc.graph.mainnet.iotex.io/",
     "deploy:goerli": "graph deploy --product hosted-service --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ 0xjurassicpunk/exchange subgraph.yaml --network goerli",
     "deploy:mainnet": "graph deploy --product hosted-service --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ looksrare/exchange subgraph.yaml --network mainnet",
     "deploy:studio": "graph codegen subgraph.yaml && graph build subgraph.yaml && graph deploy --studio looksrare-exchange-v1 --network mainnet",
     "deploy:iotex_testnet": "graph deploy --product hosted-service --node https://rpc.graph.mainnet.iotex.io/ --ipfs https://ipfs.mainnet.iotex.io looksrare/exchange subgraph.yaml --network iotex_testnet",
+    "deploy:iotex": "graph deploy --product hosted-service --node https://rpc.graph.mainnet.iotex.io/ --ipfs https://ipfs.mainnet.iotex.io mimonft/exchange subgraph.yaml --network iotex",
     "test": "graph test -r",
     "test:lerna": "graph codegen subgraph.yaml && graph build subgraph.yaml && graph test -r"
   }

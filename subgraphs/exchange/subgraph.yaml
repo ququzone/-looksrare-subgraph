@@ -6,11 +6,11 @@ schema:
 dataSources:
   - kind: ethereum/contract
     name: LooksRareExchange
-    network: iotex_testnet
+    network: iotex
     source:
       abi: LooksRareExchange
-      address: "0x784492176db6CF4d1Ca59760E5eA3B305268a039"
-      startBlock: 17431600
+      address: "0xdfe9a23670dA391A33065a3493Dd3245CB00655A"
+      startBlock: 22514300
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.6

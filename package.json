@@ -14,6 +14,7 @@
     "build:goerli": "lerna run build:goerli",
     "build:mainnet": "lerna run build:mainnet",
     "build:iotex_testnet": "lerna run build:iotex_testnet",
+    "build:iotex": "lerna run build:iotex",
     "format:check": "prettier --check '*/**/*.{js,ts,yaml,yml,json}'",
     "format:write": "prettier --write '*/**/*.{js,ts,yaml,yml,json}'",
     "lint": "eslint '*/**/*.{js,ts}'",

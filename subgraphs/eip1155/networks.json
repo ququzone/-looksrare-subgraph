@@ -13,5 +13,10 @@
     "EIP1155": {
       "startBlock": 17431600
     }
+  },
+  "iotex": {
+    "EIP1155": {
+      "startBlock": 20000000
+    }
   }
 }

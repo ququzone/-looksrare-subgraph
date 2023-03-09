@@ -16,5 +16,11 @@
       "address": "0x784492176db6CF4d1Ca59760E5eA3B305268a039",
       "startBlock": 17431600
     }
+  },
+  "iotex": {
+    "LooksRareExchange": {
+      "address": "0xdfe9a23670dA391A33065a3493Dd3245CB00655A",
+      "startBlock": 22514300
+    }
   }
 }
