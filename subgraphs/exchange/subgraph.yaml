@@ -9,7 +9,7 @@ dataSources:
     network: iotex
     source:
       abi: LooksRareExchange
-      address: "0xdfe9a23670dA391A33065a3493Dd3245CB00655A"
+      address: "0xb8494BE7b942c76B6101eeF03cf3aF87E115BbaD"
       startBlock: 22514300
     mapping:
       kind: ethereum/events
